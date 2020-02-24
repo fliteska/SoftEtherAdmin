@@ -229,7 +229,7 @@ var softEther = {
         // }
         var command = this.assembleCommand(softEtherCommand, softEtherCommandParams, hubName, enableCSV, fileName);
         // TODO removeme
-        //console.log(command);
+        console.log(command);
 
         return new Promise(function (resolve, reject) {
             exec(command)
