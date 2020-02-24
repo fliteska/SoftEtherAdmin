@@ -223,13 +223,9 @@ var softEther = {
     // ./vpncmd  localhost:port /SERVER /PASSWORD:asd /HUB:VPN /CSV /CMD hublist
     executeCommand: function (softEtherCommand, softEtherCommandParams, hubName, enableCSV, fileName, trimStartLines = 0, trimEndLines = 0) {
         var self = this;
-        let pwd = global.config.get('softEther.password');
-        // if (hubName === 'VPN') {
-        //     pwd = 'admin123';
-        // }
         var command = this.assembleCommand(softEtherCommand, softEtherCommandParams, hubName, enableCSV, fileName);
         // TODO removeme
-        console.log(command);
+        //console.log(command);
 
         return new Promise(function (resolve, reject) {
             exec(command)
@@ -271,7 +267,7 @@ var softEther = {
         // we want to administer the server
         command += ' /SERVER';
         // password
-        // var pwd = global.config.get('softEther.password');
+        var pwd = global.config.get('softEther.password');
         if (pwd) {
             command += ' /PASSWORD:' + pwd;
         }
