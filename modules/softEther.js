@@ -115,6 +115,14 @@ var softEther = {
     },
 
     /*
+     * USER COMMANDS
+     */
+
+    userCreate: function (hubName, userName) {
+        return this.executeCSVCommand('UserCreate', userName, hubName);
+    },
+
+    /*
      *   COMMON
      */
     executeFile: function (fileName, hub = null, settings = {}) {

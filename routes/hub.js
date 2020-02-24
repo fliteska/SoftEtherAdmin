@@ -33,6 +33,12 @@ router.get('/:hubName/sessionData', cache(10), function (req, res) {
     }), res);
 });
 
+router.post('/:hubName/createUser', function (req, res) {
+    const { name, password } = req.body;
+    const user = softEther.userCreate(getHubName(req), name);
+    res.json(user);
+});
+
 // throw a not found for unknown commands
 router.use('/*', function(req, res, next) {
     res.sendStatus(404);
