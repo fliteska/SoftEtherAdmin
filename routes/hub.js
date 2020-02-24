@@ -33,9 +33,9 @@ router.get('/:hubName/sessionData', cache(10), function (req, res) {
     }), res);
 });
 
-router.post('/:hubName/createUser', function (req, res) {
+router.post('/createUser', function (req, res) {
     const { name, password } = req.body;
-    const user = softEther.userCreate(getHubName(req), name);
+    const user = softEther.userCreate(null, name);
     res.json(user);
 });
 
