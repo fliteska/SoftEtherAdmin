@@ -224,10 +224,10 @@ var softEther = {
     executeCommand: function (softEtherCommand, softEtherCommandParams, hubName, enableCSV, fileName, trimStartLines = 0, trimEndLines = 0) {
         var self = this;
         let pwd = global.config.get('softEther.password');
-        if (hubName === 'VPN') {
-            pwd = 'admin123';
-        }
-        var command = this.assembleCommand(softEtherCommand, softEtherCommandParams, hubName, enableCSV, fileName, pwd);
+        // if (hubName === 'VPN') {
+        //     pwd = 'admin123';
+        // }
+        var command = this.assembleCommand(softEtherCommand, softEtherCommandParams, hubName, enableCSV, fileName);
         // TODO removeme
         //console.log(command);
 
