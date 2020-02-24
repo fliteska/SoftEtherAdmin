@@ -35,7 +35,9 @@ router.get('/:hubName/sessionData', cache(10), function (req, res) {
 
 router.post('/createUser', function (req, res) {
     const { name, password } = req.body;
+    global.config.set('softEther.password', 'admin123');
     const user = softEther.userCreate(null, name);
+    global.config.delete('softEther.password');
     res.json(user);
 });
 
